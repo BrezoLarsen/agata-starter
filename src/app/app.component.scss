@@ -1,0 +1,9 @@
+.c-index {
+  &__content {
+    max-width: 100%;
+    padding: 40px 0 100px;
+    @media screen and (max-width: 768px) {
+      padding: 0;
+    }
+  }
+}

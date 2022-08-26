@@ -1,0 +1,90 @@
+
+  <div class="c-detail">
+    <div class="u-content">
+
+      <a class="u-link" [routerLink]="['/adopta']">Volver</a>
+
+
+      <div class="u-loading" *ngIf="showLoading">
+        <img src="assets/img/loading.gif" alt="">
+      </div>
+
+      <div *ngIf="animal && !showLoading">
+        <div class="c-detail__header">
+          <h2 class="u-title">Ficha de {{animal.name}}:</h2>
+        </div>
+        <div class="c-detail__row">
+          <div class="c-detail__img" *ngIf="animal.imageUrl"
+          [ngStyle]="
+            animal.imageUrl
+              ? {
+                  'background-image': 'url(' + getAnimalImage() + ')'
+                }
+              : { 'background-image': 'url(assets/img/animal_default.jpg)' }
+          "> </div>
+          <div class="c-detail__text">
+            <h3 class="c-detail__list-title">Detalles:</h3>
+            <ul class="c-detail__list">
+              <li class="c-detail__list-item" *ngIf="animal.name">
+                <div><strong>Nombre:</strong> {{animal.name}} </div>
+              </li>
+              <li class="c-detail__list-item" *ngIf="animal.birthDate">
+                <div><strong>Fecha nacimiento:</strong> {{animal.birthDate | date: 'dd/MM/yyyy'}}</div>
+              </li>
+              <li class="c-detail__list-item">
+                <div><strong>Sexo:</strong> {{ genderLabels[animal.genderId]}}</div>
+              </li>
+              <li *ngIf="animal.isSterilized" class="c-detail__list-item">
+                <div><strong>Esterilizad@:</strong> {{animal.isSterilized}}</div>
+              </li>
+              <li *ngIf="animal.linkMoreInfo" class="c-detail__list-item">
+                <div><strong><a target="_blank" href="">Ficha a Facebook</a></strong></div>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="c-detail__description">
+          <h3 class="c-detail__list-title">Más datos:</h3>
+          <p class="c-detail__description-text" *ngIf="animal.behaviour"><strong>Carácter: </strong>{{animal.behaviour}}</p>
+          <p class="c-detail__description-text" *ngIf="animal.story"><strong>Historia: </strong>{{animal.story}}</p>
+          <p class="c-detail__description-text" *ngIf="animal.status"><strong>Estado: </strong>{{animal.status}}</p>
+          <p class="c-detail__description-text" *ngIf="animal.compatibleWith"><strong>Compatible con: </strong>{{animal.compatibleWith}}</p>
+          <p class="c-detail__description-text" *ngIf="animal.health"><strong>Salud: </strong>{{animal.health}}</p>
+        </div>
+
+        <!-- <hr *ngIf="animal.photosArray">
+
+        <div *ngIf="animal.photosArray" class="c-detail__gallery">
+          <h3>GALERÍA:</h3>
+          <div class="c-detail__gallery-content">
+            DOC: https://codepen.io/alexerlandsson/pen/ONqdZY
+            <div data-am-fadeshow="next-prev-navigation">
+              <input *ngFor="let item of photosArray" type="radio" name="css-fadeshow" id="slide-{{item.id}}" />
+              <div class="fs-slides">
+                <div *ngFor="let item of photosArray" class="fs-slide" style="background-image: url({{item.src}})"></div>
+              </div>
+
+              <div class="fs-prev-nav">
+                <label *ngFor="let item of photosArray" class="fs-prev-btn" for="slide-{{item.id}}"></label>
+              </div>
+
+              <div class="fs-next-nav">
+                <label *ngFor="let item of photosArray" class="fs-next-btn" for="slide-{{item.id}}"></label>
+              </div>
+
+            </div>
+          </div>
+        </div> -->
+
+        <div class="c-detail__description">
+          <h3 class="c-detail__list-title">¿Quieres conocer a {{animal.name}}?</h3>
+          <p class="c-detail__description-text"><strong>Llámanos: </strong></p>
+          <p class="c-detail__description-text"><strong>Escríbenos: </strong><a class="u-link" href="mailto:asociacion@gmail.com"> asociacion@gmail.com</a></p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
