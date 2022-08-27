@@ -51,6 +51,10 @@ p {
   padding: 0 20px;
 }
 
+.u-block {
+  padding: 60px 0;
+}
+
 .u-loading {
   width: 100%;
   height: 100px;
@@ -63,11 +67,34 @@ p {
 
 .u-menu {
   position: fixed;
-  top: 0;
+  top: 50px;
+  // IF has topbar => top: 0;
   width: 100%;
   background-color: #fff;
   box-shadow: 7px 4px 6px -2px #4b49497d;
   z-index: 9;
+  @media only screen and (max-width: 992px) {
+    top: 0;
+  }
+}
+
+.u-topbar {
+  background-color: #97c6d2;
+  padding: 10px 0;
+  &__link {
+    color: #494949;
+    font-weight: bold;
+    text-decoration: none;
+  }
+  &__content {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 10px;
+  }
+  @media screen and (max-width: 992px) {
+    display: none;
+  }
 }
 
 .u-header {
@@ -112,7 +139,7 @@ p {
 }
 
 .u-navbar {
-  padding: 0 0 8px;
+  padding: 8px 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -133,11 +160,13 @@ p {
     }
   }
   &__name {
-    font-size: 30px;
+    font-size: 26px;
     font-family: Rowdies, "Helvetica Neue", sans-serif;
     font-weight: bold;
+    line-height: 28px;
     @media only screen and (max-width: 1100px) {
-      font-size: 25px;
+      font-size: 20px;
+      line-height: 22px;
     }
   }
   &__menu {
@@ -149,7 +178,7 @@ p {
       }
     }
     &-item {
-      font-size: 18px;
+      font-size: 1rem;
       font-weight: bold;
       color: #293133;
       text-decoration: none;
@@ -159,7 +188,7 @@ p {
       width: 100%;
       height: 100vh;
       position: absolute;
-      top: 88px;
+      top: 65px;
       right: -400px;
       z-index: 9;
       background: #fff;
@@ -265,6 +294,10 @@ p {
 .u-social-icon {
   width: 40px;
   height: 40px;
+  &--small {
+    width: 30px;
+    height: 30px;
+  }
 }
 
 .u-link {
@@ -322,14 +355,14 @@ p {
 
 .visible-xs {
   display: none;
-  @media only screen and (max-width: 768px) {
+  @media only screen and (max-width: 992px) {
     display: block;
   }
 }
 
 .hidden-xs {
   display: block;
-  @media only screen and (max-width: 768px) {
+  @media only screen and (max-width: 992px) {
     display: none!important;
   }
 }

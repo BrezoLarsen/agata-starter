@@ -20,5 +20,5 @@ export interface IAnimal {
   adoptionDate?: string;
   passAwayDate?: string;
   showInAdoptionPage?: boolean;
-  extraInformation: string;
+  extraInformation?: string;
 }

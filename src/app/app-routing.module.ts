@@ -1,9 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
+import { AboutUsPageComponent } from './pages/about-us/about-us-page.component';
 import { AdoptionDetailComponent } from './pages/adoption-detail/adoption-detail.component';
 import { AdoptionPageComponent } from './pages/adoption-page/adoption-page.component';
 import { IndexComponent } from './pages/index/index.component';
+import { AdoptedPageComponent } from './pages/adopted-page/adopted-page.component';
+import { SponsorPageComponent } from './pages/sponsor/sponsor-page.component';
 
 const routes: Routes = [
   {
@@ -13,21 +16,33 @@ const routes: Routes = [
   {
     path: 'inicio',
     component: IndexComponent,
+    title: 'Inicio',
   },
   {
     path: 'adopta',
     component: AdoptionPageComponent,
+    title: 'Adopta',
   },
   {
     path: 'detalle/:id',
     component: AdoptionDetailComponent,
+    title: 'Detalle',
   },
-  //// { path: 'la-huronera', component: FerretlandComponent },
-  //// { path: 'guarderia', component: KinderGardenComponent },
-  // { path: 'nuestra-labor', component: OurWorkComponent },
-  //// { path: 'colabora', component: ColaborateComponent }, hazte socio o padrino + donaciones + teaming
-  //// { path: 'casa-de-acogida', component: ShelterHomeComponent },
-
+  {
+    path: 'sobre-nosotros',
+    component: AboutUsPageComponent,
+    title: 'Nosotr@s',
+  },
+  {
+    path: 'adoptados',
+    component: AdoptedPageComponent,
+    title: 'Adoptados',
+  },
+  {
+    path: 'apadrina',
+    component: SponsorPageComponent,
+    title: 'Apadrina/amadrina',
+  },
   { path: '**', redirectTo: 'inicio', pathMatch: 'full' },
 ];
 

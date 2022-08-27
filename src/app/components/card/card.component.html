@@ -1,0 +1,17 @@
+<div class="c-adoption-card" (click)="goToDetail(animal.id)">
+  <div class="c-adoption-card__img"
+      [ngStyle]="
+      animal.imageUrl
+        ? {
+            'background-image': 'url(' + getAnimalImage() + ')'
+          }
+        : { 'background-image': 'url(assets/img/animal_default.jpg)' }
+    ">
+    <div class="c-adoption-card__img-label">{{animal.name}}</div>
+  </div>
+  <div class="c-adoption-card__text">
+    <p class="c-card__info-name"><strong>Sexo:</strong> {{ genderLabels[animal.genderId]}}</p>
+    <p class="c-card__info-name"><strong>F. nac:</strong> {{animal.birthDate ? (animal.birthDate | date: 'dd/MM/yyyy') : '-'}}</p>
+  </div>
+</div>
+

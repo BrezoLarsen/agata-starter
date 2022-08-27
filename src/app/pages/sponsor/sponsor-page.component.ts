@@ -6,18 +6,18 @@ import { IFilter } from 'src/app/interfaces/filters.model';
 import { AnimalService } from 'src/app/services/animals.service';
 
 @Component({
-  selector: 'app-adoption-page',
-  templateUrl: './adoption-page.component.html',
-  styleUrls: ['./adoption-page.component.scss'],
+  selector: 'app-sponsor-page',
+  templateUrl: './sponsor-page.component.html',
+  styleUrls: ['./sponsor-page.component.scss'],
 })
-export class AdoptionPageComponent implements OnInit {
+export class SponsorPageComponent implements OnInit {
   public animalsToShow: IAnimal[] = [];
   public animals: IAnimal[] = [];
   public showLoading = false;
   public isMenuVisible = false;
 
   private _filters: IFilter = {
-    showInAdoptionPage: true,
+    showInSponsorPage: true,
   };
   private _ngUnsubscribe: Subject<void> = new Subject<void>();
 

@@ -1,20 +1,21 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss'],
+  selector: 'app-about-us-page',
+  templateUrl: './about-us-page.component.html',
+  styleUrls: ['./about-us-page.component.scss'],
 })
-export class AppComponent {
-  title = 'huronlife';
+export class AboutUsPageComponent {
   public isMenuVisible = false;
+
+  constructor() {}
 
   presentMenu(e) {
     const htmlTag = document.getElementById('html');
     this.isMenuVisible = !this.isMenuVisible;
     if (this.isMenuVisible) {
       document.body.classList.add('overflow-hidden');
-      htmlTag?.classList.add('overflow-hidden');
+      htmlTag.classList.add('overflow-hidden');
     } else {
       document.body.classList.remove('overflow-hidden');
       this.removeOverflowHidden();
@@ -24,9 +25,7 @@ export class AppComponent {
   closeMenu() {
     document.body.classList.remove('overflow-hidden');
     this.isMenuVisible = false;
-    if (this.isMenuVisible) {
-      this.removeOverflowHidden();
-    }
+    this.removeOverflowHidden();
   }
 
   private removeOverflowHidden() {

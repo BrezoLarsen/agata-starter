@@ -1,4 +1,18 @@
 
+<div class="u-topbar">
+  <div class="u-content">
+    <div class="u-topbar__content">
+      <a class="u-topbar__link" href="mailto:email@email.com">email@email.com</a>
+      <div><a href="https://www.instagram.com/" target="_blank"><img class="u-social-icon u-social-icon--small" src="../../../assets/img/instagram-dark.svg" alt=""></a></div>
+      <div><a href="https://www.facebook.com/" target="_blank"><img class="u-social-icon u-social-icon--small" src="../../../assets/img/facebook-dark.svg" alt=""></a></div>
+    </div>
+  </div>
+</div>
+
+<!-- En caso de querer una imagen encima del menú, descomentar esta línea
+<div id="inicio" class="u-header"></div> -->
+
+
 <div class="u-menu">
   <div class="u-content">
     <div class="u-navbar">
@@ -11,8 +25,8 @@
       </div>
 
       <div class="u-navbar__brand" [routerLink]="['']">
-        <img src="assets/img/logo2.png" alt="">
-        <div class="u-navbar__name">Felinas<br class="hidden-xs"> de Aluche</div>
+        <img width="60" src="assets/img/logo.jpg" alt="">
+        <div class="u-navbar__name">Nombre<br class="hidden-xs"> de la asociación</div>
       </div>
 
       <div class="u-navbar__menu" [ngClass]="isMenuVisible ? 'u-navbar__menu--open' : ''">
@@ -21,17 +35,23 @@
             [routerLink]="['/inicio']"
             (click)="closeMenu()">Inicio</a>
           <a class="u-navbar__menu-item"
-            [routerLink]="['/nuestra-labor']"
-            (click)="closeMenu()">Nuestra labor</a>
+            [routerLink]="['/sobre-nosotros']"
+            (click)="closeMenu()">Nosotr@s</a>
           <a class="u-navbar__menu-item"
             [routerLink]="['/colabora']"
             (click)="closeMenu()">Colabora</a>
           <a class="u-navbar__menu-item"
             [routerLink]="['/casa-de-acogida']"
-            (click)="closeMenu()">Hazte casa de acogida</a>
+            (click)="closeMenu()">Casa de acogida</a>
           <a class="u-navbar__menu-item"
             [routerLink]="['/adopta']"
             (click)="closeMenu()">¡Adopta!</a>
+            <a class="u-navbar__menu-item"
+            [routerLink]="['/adoptados']"
+            (click)="closeMenu()">Adoptados</a>
+            <a class="u-navbar__menu-item"
+            [routerLink]="['/apadrina']"
+            (click)="closeMenu()">Apadrina</a>
         </div>
         <div class="u-navbar__mobile-rrss">
           <div><a href="https://www.instagram.com" target="_blank"><img class="u-social-icon" src="../../../assets/img/instagram-dark.svg" alt=""></a></div>
@@ -47,7 +67,7 @@
   <div class="u-content">
     <div class="u-header-content">
       <h1>Nombre<br>asociación</h1>
-      <h2 class="u-header-subtitle">Asociación de Protección Animal sin ánimo de lucro dedicada a ayudar a los gatos callejeros en Madrid.</h2>
+      <h2 class="u-header-subtitle">Asociación de Protección Animal sin ánimo de lucro dedicada a ayudar a los animales callejeros en Madrid.</h2>
       <div><a class="u-button" href="https://www.teaming.net" target="_blank">¡Únete a nuestro Teaming!</a></div>
     </div>
   </div>
