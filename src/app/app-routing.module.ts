@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
 import { AboutUsPageComponent } from './pages/about-us/about-us-page.component';
 import { AdoptionDetailComponent } from './pages/adoption-detail/adoption-detail.component';
-import { AdoptionPageComponent } from './pages/adoption-page/adoption-page.component';
+import { AdoptionListComponent } from './pages/adoption-list/adoption-list.component';
 import { IndexComponent } from './pages/index/index.component';
 import { AdoptedPageComponent } from './pages/adopted-page/adopted-page.component';
 import { SponsorPageComponent } from './pages/sponsor/sponsor-page.component';
@@ -20,7 +20,7 @@ const routes: Routes = [
   },
   {
     path: 'adopta',
-    component: AdoptionPageComponent,
+    component: AdoptionListComponent,
     title: 'Adopta',
   },
   {

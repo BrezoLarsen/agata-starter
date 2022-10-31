@@ -2,5 +2,5 @@ export const SETTINGS = Object({
   VERSION: '1.0.0',
   API_URL: 'https://orcaapp.org/api/',
   ANIMALS_IMAGE_PATH: 'https://orcaapp.org/content/images/animals/',
-  TENANTID: '',
+  TENANTID: '162e69b5-f53f-412a-88db-b131443f44d3',
 });

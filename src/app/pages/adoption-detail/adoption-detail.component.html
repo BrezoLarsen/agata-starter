@@ -2,7 +2,7 @@
   <div class="c-detail">
     <div class="u-content">
 
-      <a class="u-link" [routerLink]="['/adopta']">Volver</a>
+      <div class="u-back" (click)="back()">&#x0003C; Volver</div>
 
 
       <div class="u-loading" *ngIf="showLoading">
@@ -14,9 +14,9 @@
           <h2 class="u-title">Ficha de {{animal.name}}:</h2>
         </div>
         <div class="c-detail__row">
-          <div class="c-detail__img" *ngIf="animal.imageUrl"
+          <div class="c-detail__img" *ngIf="animal.principalImageFileName"
           [ngStyle]="
-            animal.imageUrl
+            animal.principalImageFileName
               ? {
                   'background-image': 'url(' + getAnimalImage() + ')'
                 }
@@ -44,7 +44,7 @@
           </div>
         </div>
 
-        <div class="c-detail__description">
+        <div *ngIf="animal.behaviour || animal.story || animal.status || animal.compatibleWith || animal.health" class="c-detail__description">
           <h3 class="c-detail__list-title">Más datos:</h3>
           <p class="c-detail__description-text" *ngIf="animal.behaviour"><strong>Carácter: </strong>{{animal.behaviour}}</p>
           <p class="c-detail__description-text" *ngIf="animal.story"><strong>Historia: </strong>{{animal.story}}</p>
@@ -77,11 +77,45 @@
           </div>
         </div> -->
 
-        <div class="c-detail__description">
-          <h3 class="c-detail__list-title">¿Quieres conocer a {{animal.name}}?</h3>
-          <p class="c-detail__description-text"><strong>Llámanos: </strong></p>
-          <p class="c-detail__description-text"><strong>Escríbenos: </strong><a class="u-link" href="mailto:asociacion@gmail.com"> asociacion@gmail.com</a></p>
+        <hr *ngIf="imagesArray.length && imagesArray.length > 1">
+
+        <div *ngIf="imagesArray.length && imagesArray.length > 1" class="c-detail__gallery-block">
+          <div class="c-detail__gallery">
+            <h3>GALERÍA:</h3>
+            <div class="c-detail__gallery-content">
+              <div data-am-fadeshow="next-prev-navigation">
+                <input *ngFor="let item of imagesArray" type="radio" name="css-fadeshow" id="slide-{{item.id}}" />
+                <div class="fs-slides">
+                  <div *ngFor="let item of imagesArray" class="fs-slide" [style.background-image]="'url('+imagesUrl+item.fileName+')'"></div>
+                </div>
+
+                <div class="fs-prev-nav">
+                  <label *ngFor="let item of imagesArray" class="fs-prev-btn" for="slide-{{item.id}}"></label>
+                </div>
+
+                <div class="fs-next-nav">
+                  <label *ngFor="let item of imagesArray" class="fs-next-btn" for="slide-{{item.id}}"></label>
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+          <div class="c-detail__description">
+            <h3 class="c-detail__list-title">¿Quieres conocer a {{animal.name}}?</h3>
+            <p class="c-detail__description-text"><strong>Escríbenos a: </strong><a class="u-link" href="mailto:asociacion@hotmail.com">asociacion@hotmail.com</a></p>
+          </div>
         </div>
+
+        <hr *ngIf="imagesArray.length === 1">
+
+        <div *ngIf="imagesArray.length === 1" class="c-detail__contact">
+          <div class="c-detail__description">
+            <h3 class="c-detail__list-title">¿Quieres conocer a {{animal.name}}?</h3>
+            <p class="c-detail__description-text"><strong>Escríbenos a: </strong><a class="u-link" href="mailto:asociacion@hotmail.com">asociacion@hotmail.com</a></p>
+          </div>
+        </div>
+
       </div>
 
     </div>

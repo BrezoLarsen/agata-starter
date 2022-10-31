@@ -1,7 +1,7 @@
 <div class="c-adoption-card" (click)="goToDetail(animal.id)">
   <div class="c-adoption-card__img"
       [ngStyle]="
-      animal.imageUrl
+      animal.principalImageFileName
         ? {
             'background-image': 'url(' + getAnimalImage() + ')'
           }

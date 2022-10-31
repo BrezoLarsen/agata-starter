@@ -1,0 +1,18 @@
+.c-footer {
+  background-color: #293133;
+  text-align: center;
+  color: #fff;
+  padding: 60px 0;
+  &__rrss {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin: 20px 0 0;
+  }
+  &__content {
+    &-agata {
+      margin-top: 40px;
+      width: 200px;
+    }
+  }
+}

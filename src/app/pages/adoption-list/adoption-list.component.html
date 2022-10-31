@@ -1,0 +1,23 @@
+<div class="c-adoption-list">
+  <div class="u-content">
+
+    <div class="c-adoption-list__header">
+      <div class="u-back" (click)="back()">&#x0003C; Volver</div>
+      <h2 class="u-title">En adopción</h2>
+      <p *ngIf="animalsToShow.length > 0">Pulsa sobre cada tarjeta para obtener más información</p>
+    </div>
+
+    <div *ngIf="animalsToShow.length > 0 && !showLoading" class="c-adoption-list__grid">
+      <div class="c-adoption-list__gallery-box" *ngFor="let animal of animalsToShow; let i = index">
+        <app-card [animal]="animal"></app-card>
+      </div>
+    </div>
+
+    <div *ngIf="showLoading"><img class="loading" src="assets/img/loading.gif" alt=""></div>
+
+    <div *ngIf="animalsToShow.length == 0 && !showLoading">Ahora mismo no tenemos animales que coincidan con esta característica.<br class="hidden-xs">
+      Envíanos un email a <strong>hakunamatata.familiaanimalista@gmail.com</strong> <br class="hidden-xs"> y nos pondremos en contacto contigo cuando rescatemos a un animal de esta especie.
+    </div>
+
+  </div>
+</div>

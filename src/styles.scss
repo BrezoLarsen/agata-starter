@@ -66,8 +66,8 @@ p {
 }
 
 .u-menu {
-  position: fixed;
-  top: 50px;
+  // position: fixed;
+  // top: 50px;
   // IF has topbar => top: 0;
   width: 100%;
   background-color: #fff;
@@ -102,7 +102,7 @@ p {
   height: 540px;
   background: url('./assets/img/fondo.jpg') no-repeat center;
   background-size: cover;
-  padding-top: 110px;
+  //padding-top: 110px;
   @media screen and (max-width: 1300px) {
     height: 430px;
   }

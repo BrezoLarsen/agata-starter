@@ -22,6 +22,6 @@ export class CardComponent implements OnInit {
   }
 
   getAnimalImage(): string {
-    return SETTINGS.ANIMALS_IMAGE_PATH + this.animal.imageUrl;
+    return SETTINGS.ANIMALS_IMAGE_PATH + this.animal.principalImageFileName;
   }
 }

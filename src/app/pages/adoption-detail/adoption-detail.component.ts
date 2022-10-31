@@ -4,6 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Subject } from 'rxjs';
 import { finalize, takeUntil } from 'rxjs/operators';
 import { SETTINGS } from 'src/app/config/settings';
+import { IAnimalImage } from 'src/app/interfaces/animalImage';
 import { IFilter } from 'src/app/interfaces/filters.model';
 import { GenderLabels } from 'src/app/interfaces/genders';
 import { AnimalService } from 'src/app/services/animals.service';
@@ -19,9 +20,12 @@ export class AdoptionDetailComponent implements OnInit {
   public showLoading = false;
   public isMenuVisible = false;
   public genderLabels = GenderLabels;
+  public imagesArray: IAnimalImage[] = [];
+  public imagesUrl = SETTINGS.ANIMALS_IMAGE_PATH;
 
   private _filters: IFilter = {};
   private _param: string;
+  private _animalId: number;
   private _ngUnsubscribe: Subject<void> = new Subject<void>();
 
   constructor(
@@ -32,8 +36,10 @@ export class AdoptionDetailComponent implements OnInit {
 
   ngOnInit(): void {
     this._param = this.activatedRoute.snapshot.paramMap.get('id');
-    this._filters.animalId = Number(this._param);
+    this._animalId = Number(this._param);
+    this._filters.animalId = this._animalId;
     this.getAnimal();
+    this.getAnimalImages();
   }
 
   ngOnDestroy(): void {
@@ -41,7 +47,7 @@ export class AdoptionDetailComponent implements OnInit {
     this._ngUnsubscribe.complete();
   }
 
-  goBack(): void {
+  back() {
     this.location.back();
   }
 
@@ -64,7 +70,7 @@ export class AdoptionDetailComponent implements OnInit {
   }
 
   getAnimalImage(): string {
-    return SETTINGS.ANIMALS_IMAGE_PATH + this.animal.imageUrl;
+    return SETTINGS.ANIMALS_IMAGE_PATH + this.animal.principalImageFileName;
   }
 
   private removeOverflowHidden() {
@@ -80,6 +86,23 @@ export class AdoptionDetailComponent implements OnInit {
       .pipe(takeUntil(this._ngUnsubscribe))
       .subscribe((animals: IAnimal[]) => {
         this.animal = animals[0];
+      });
+  }
+
+  private getAnimalImages(): void {
+    this.animalsService
+      .getAnimalImagesByAnimalId(this._animalId)
+      .pipe(takeUntil(this._ngUnsubscribe))
+      .pipe(
+        finalize(() => {
+          this.showLoading = false;
+        })
+      )
+      .subscribe((data) => {
+        this.imagesArray = data;
+        console.log(this.imagesArray);
+        const firstPhoto = this.imagesArray.shift();
+        this.imagesArray.push(firstPhoto);
       });
   }
 }

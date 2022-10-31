@@ -1,24 +1,34 @@
-export interface IAnimal {
+export class IAnimal {
   id: string;
   name?: string;
-  specie?: string;
+  specieId?: number;
   subspecie?: string;
   breed?: string;
   gender?: string;
   genderId?: number;
-  isSterilized?: string;
-  birthDate?: string;
+  isSterilized?: boolean;
+  isVaccinated?: boolean;
+  birthDate?: Date;
   status?: string;
-  city?: string;
+  placeText?: string;
   compatibleWith?: string;
   health?: string;
   behaviour?: string;
   story?: string;
   chip?: string;
   imageUrl?: string;
-  needLicense?: string;
-  adoptionDate?: string;
-  passAwayDate?: string;
-  showInAdoptionPage?: boolean;
+  principalImageFileName?: string;
+  needLiscense?: boolean;
+  moreInfoLink?: string;
+  adoptionDate?: Date;
+  passAwayDate?: Date;
+  creationDate: Date;
+  showInAdoptionPage: boolean;
+  showInAdoptedPage: boolean;
+  showInSponsorPage: boolean;
+  place?: string;
+  localizationId?: number;
+  localizationName?: string;
+  fur?: string;
   extraInformation?: string;
 }

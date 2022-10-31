@@ -1,9 +1,14 @@
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import {
+  HttpClient,
+  HttpErrorResponse,
+  HttpParams,
+} from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { SETTINGS } from '../config/settings';
 import { IAnimal } from '../interfaces/animal.model';
+import { IAnimalImage } from '../interfaces/animalImage';
 import { IFilter } from '../interfaces/filters.model';
 
 @Injectable({
@@ -21,6 +26,23 @@ export class AnimalService {
       )
       .pipe(
         map((data: IAnimal[]) => {
+          return data;
+        })
+      );
+  }
+
+  getAnimalImagesByAnimalId(animalId: number): Observable<IAnimalImage[]> {
+    const params = new HttpParams().set('animalId', animalId);
+
+    return this.httpClient
+      .get<IAnimalImage[]>(
+        SETTINGS.API_URL + 'animalImage/getAnimalImageByAnimalId.php',
+        {
+          params,
+        }
+      )
+      .pipe(
+        map((data: IAnimalImage[]) => {
           return data;
         })
       );

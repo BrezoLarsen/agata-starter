@@ -1,0 +1,15 @@
+.c-adoption-list {
+  margin: 60px 0;
+  @media screen and (max-width: 768px) {
+    margin: 30px 0;
+  }
+  &__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 40px;
+    @media screen and (max-width: 1300px) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+}
