@@ -4,8 +4,9 @@ export interface IEvent {
   title: string;
   description?: string;
   address?: string;
+  city?: string;
   dateStart: Date;
-  dateEnd: Date;
+  dateEnd?: Date;
   hourStart: string;
   hourEnd?: string;
   hasImage: boolean;
