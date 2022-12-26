@@ -5,9 +5,9 @@ export interface IEvent {
   description?: string;
   address?: string;
   city?: string;
-  dateStart: Date;
-  dateEnd?: Date;
-  hourStart: string;
-  hourEnd?: string;
+  startDate: Date;
+  endDate?: Date;
+  startHour: string;
+  endHour?: string;
   hasImage: boolean;
 }
