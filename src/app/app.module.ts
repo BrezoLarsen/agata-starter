@@ -10,6 +10,7 @@ import { AdoptionListComponent } from './pages/adoption-list/adoption-list.compo
 import { IndexComponent } from './pages/index/index.component';
 import { CardComponent } from './components/card/card.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { EventBoxComponent } from './components/event-box/event-box.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { FooterComponent } from './components/footer/footer.component';
     IndexComponent,
     CardComponent,
     FooterComponent,
+    EventBoxComponent,
   ],
   imports: [BrowserModule, RouterModule, AppRoutingModule, HttpClientModule],
   providers: [],

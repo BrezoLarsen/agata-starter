@@ -4,6 +4,13 @@
       Inicio
     </div>
 
+    <div *ngIf="events.length > 0" class="c-home__events">
+      <h2 class="u-title">¡Próximos eventos!</h2>
+      <div *ngFor="let event of events">
+        <app-event-box [event]="event"></app-event-box>
+      </div>
+    </div>
+
     <div class="u-block">
       <!-- <div *ngIf="animalsToShow.length > 0" class="u-animal-list__grid">
         <div class="c-adoption-list__gallery-box" *ngFor="let animal of animalsToShow; let i = index">
