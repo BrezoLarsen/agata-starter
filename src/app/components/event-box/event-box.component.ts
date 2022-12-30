@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { SETTINGS } from 'src/app/config/settings';
 import { IEvent } from 'src/app/interfaces/event.model';
 
 @Component({
@@ -14,7 +15,9 @@ export class EventBoxComponent implements OnInit {
   ngOnInit(): void {}
 
   getEventImage(): string {
-    // return SETTINGS.ANIMALS_IMAGE_PATH + this.event.principalImageFileName;
-    return '../../../../assets/img/main3.jpg';
+    if (!this.event.hasImage) {
+      return '';
+    }
+    return `${SETTINGS.EVENTS_IMAGE_PATH}event__${this.event.id}.jpg`;
   }
 }
